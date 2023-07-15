@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="fill-users-table.xml.1" author="ani">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="users"/>
+        </preConditions>
+
+        <insert tableName="users">
+            <column name="login">user</column>
+            <column name="password">12345689</column>
+            <column name="role">USER</column>
+        </insert>
+
+        <insert tableName="users">
+            <column name="login">admin</column>
+            <column name="password">123456789</column>
+            <column name="role">Admin</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
